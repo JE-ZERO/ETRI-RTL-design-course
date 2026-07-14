@@ -11,7 +11,7 @@ export SOURCE       = run_vivado.tcl
 export PART         = xc7z020clg484-1
 export BOARD        = em.avnet.com:zed:part0:1.4
 export FILE_XDC     = fpga_zed.xdc
-export DIR_PROJECT  = ../../../../..
+export DIR_IP       = ../../../..
 export GUI         ?= 1
 
 #-------------------------------------------------------------------------------
@@ -58,4 +58,3 @@ cleanupall distclean: cleanup
 	/bin/rm -f  AddressMapTable.xlsx
 	/bin/rm -f  AddressMap.cvs AddressMapGui.cvs
 	@if [ -d $(PROJECT_DIR) ]; then /bin/rm -fr $(PROJECT_DIR); fi
-

@@ -10,8 +10,7 @@ SET PROJECT_DIR=%PROJECT_NAME%
 SET SOURCE=run_vivado.tcl
 SET PART=xc7z020clg484-1
 SET BOARD=em.avnet.com:zed:part0:1.4
-SET DIR_IP=..\..\..
-SET FILE_XDC=fpga_zed.xdc
+SET DIR_IP=..\..\..\..
 SET GUI=1
 
 ::ECHO %VIVADO%
@@ -23,7 +22,6 @@ SET GUI=1
 ::ECHO %PART%
 ::ECHO %BOARD%
 ::ECHO %DIR_IP%
-::ECHO %FILE_XDC%
 ::ECHO %GUI%
 
 IF "%GUI%"=="1" (

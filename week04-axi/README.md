@@ -1,15 +1,23 @@
 # 4주차 — AXI4-Lite와 UART
 
-AXI4-Lite 프로토콜을 사용하는 메모리 및 UART 주변장치를 구현하고 ZedBoard에 연결한 실습입니다.
+AXI4-Lite 메모리에서 UART 주변장치와 ZedBoard 통합 시스템으로 진행됩니다. 최종 BD가 참조하는 변환기·UART IP·ARM 소프트웨어를 하나의 챕터로 묶었습니다.
 
-## 프로젝트 흐름
+| 순서 | 디렉터리 | 내용 |
+| --- | --- | --- |
+| 01 | [`01-axi-lite-memory`](01-axi-lite-memory/) | AXI4-Lite 메모리 슬레이브 |
+| 02 | [`02-uart-transmitter`](02-uart-transmitter/) | UART 송신기 기초와 AXI 태스크 실습 |
+| 03 | [`03-axi-lite-uart-system`](03-axi-lite-uart-system/) | AXI 변환기, UART IP, ZedBoard BD와 ARM 테스트 |
 
-1. `amba_axi_lite_mem_simple` — AXI4-Lite 메모리 슬레이브
-2. `axi4_to_lite` — AXI4 트랜잭션을 단순화하는 변환기와 동기 FIFO
-3. `ex_uart` — UART 관련 기초 예제
-4. `uart_axi_lite` — UART TX/RX, FIFO, CSR, AXI4-Lite 인터페이스 통합
-5. `uart_axi_lite_zedboard` — ZedBoard 하드웨어 구성과 ARM UART 테스트
+## 03. AXI4-Lite UART 시스템
 
-`uart_axi_lite`의 핵심 RTL은 `rtl/verilog`, SystemVerilog 테스트벤치와 AXI/UART 태스크는 `bench/verilog`, 레지스터 접근용 C API는 `api/c`에 있습니다.
+```text
+03-axi-lite-uart-system/
+├── ip/
+│   ├── axi4-to-lite/             # AXI 변환기와 동기 FIFO
+│   └── uart-axi-lite/            # UART TX/RX, FIFO, CSR, AXI 인터페이스
+└── zedboard/
+    ├── hw/impl.zed/              # BD 생성 Tcl과 XDC
+    └── sw.arm/uart_test/         # ARM UART 테스트 소프트웨어
+```
 
-ZedBoard 프로젝트는 `hw/impl.zed/design_zed.tcl`로 재생성할 수 있으며 소프트웨어 예제는 `sw.arm/uart_test/src`에 있습니다.
+`zedboard/hw/impl.zed/design_zed.tcl`은 같은 챕터의 두 IP를 직접 참조하도록 수정했습니다. UART 단독 RTL/시뮬레이션/API는 `ip/uart-axi-lite`에서 확인할 수 있습니다.

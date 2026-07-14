@@ -10,7 +10,7 @@ export PROJECT_DIR  = $(PROJECT_NAME)
 export SOURCE       = run_vivado.tcl
 export PART         = xc7z020clg484-1
 export BOARD        = em.avnet.com:zed:part0:1.4
-export DIR_IP       = ../../..
+export DIR_IP       = ../../../..
 export GUI         ?= 1
 
 #-------------------------------------------------------------------------------
@@ -57,4 +57,3 @@ cleanupall distclean: cleanup
 	/bin/rm -f  AddressMapTable.xlsx
 	/bin/rm -f  AddressMap.cvs AddressMapGui.cvs
 	@if [ -d $(PROJECT_DIR) ]; then /bin/rm -fr $(PROJECT_DIR); fi
-

@@ -58,8 +58,8 @@ if { $list_projs eq "" } {
 #set_property  ip_repo_paths  { ../ip/mem_axi/gen_ip } [current_project]
 #update_ip_catalog
 
-add_files -norecurse -scan_for_includes ${DIR_PROJECT}/axi4_to_lite/rtl/verilog/axi4_to_lite.v
-add_files -norecurse -scan_for_includes ${DIR_PROJECT}/uart_axi_lite/rtl/verilog/uart_axi_lite.v
+add_files -norecurse -scan_for_includes ${DIR_PROJECT}/ip/axi4-to-lite/rtl/verilog/axi4_to_lite.v
+add_files -norecurse -scan_for_includes ${DIR_PROJECT}/ip/uart-axi-lite/rtl/verilog/uart_axi_lite.v
 update_compile_order -fileset sources_1
 
 # CHANGE DESIGN NAME HERE

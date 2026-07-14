@@ -58,8 +58,8 @@ if { $list_projs eq "" } {
 #set_property  ip_repo_paths  { ../ip/mem_axi/gen_ip } [current_project]
 #update_ip_catalog
 
-add_files -norecurse -scan_for_includes ${DIR_IP}/ex_ARM_mem_apb/rtl/verilog/mem_apb4.v
-add_files -norecurse -scan_for_includes ${DIR_IP}/ex_ARM_mem_apb/rtl/verilog/axi4_to_apb4_s3.v
+add_files -norecurse -scan_for_includes ${DIR_IP}/ip/axi4-to-apb-and-memory/rtl/verilog/mem_apb4.v
+add_files -norecurse -scan_for_includes ${DIR_IP}/ip/axi4-to-apb-and-memory/rtl/verilog/axi4_to_apb4_s3.v
 update_compile_order -fileset sources_1
 
 # CHANGE DESIGN NAME HERE
@@ -744,5 +744,4 @@ proc create_root_design { parentCell } {
 ##################################################################
 
 create_root_design ""
-
 

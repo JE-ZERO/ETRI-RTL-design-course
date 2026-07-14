@@ -1,19 +1,35 @@
 # 3주차 — FPGA와 AMBA 버스
 
-메모리 RTL을 시작으로 AMBA AHB/APB 주변장치를 설계하고 ZedBoard의 ARM 프로세서와 연결한 실습입니다.
+디렉터리 이름을 학습 순서대로 통일하고, 서로 참조하는 RTL IP·Block Design·ARM 소프트웨어는 하나의 시스템 챕터로 묶었습니다.
 
-## 프로젝트 흐름
+| 순서 | 디렉터리 | 내용 |
+| --- | --- | --- |
+| 01 | [`01-memory-basics`](01-memory-basics/) | 기본 메모리 RTL과 테스트벤치 |
+| 02 | [`02-memory-byte-enable`](02-memory-byte-enable/) | 부분 쓰기/byte enable 메모리 |
+| 03 | [`03-amba-ahb-practice`](03-amba-ahb-practice/) | AMBA AHB 버스 및 BFM 실습 |
+| 04 | [`04-apb-memory-peripheral`](04-apb-memory-peripheral/) | APB 메모리 주변장치 |
+| 05 | [`05-zedboard-apb-system`](05-zedboard-apb-system/) | AXI-to-APB, 메모리/GPIO IP, ZedBoard BD와 ARM 소프트웨어 |
 
-1. `ex_memory` — 기본 메모리 RTL과 테스트벤치
-2. `ex_memory_partial` — 부분 쓰기를 지원하는 메모리
-3. `ex_AHB` — AHB 기반 버스 실습
-4. `ex_mem_apb` — APB 메모리 주변장치
-5. `ex_ARM_mem_apb` — AXI-to-APB 브리지와 메모리 연동
-6. `ex_gpio_apb` — APB GPIO RTL 및 C API
-7. `ex_mem_apb_zedboard` — ZedBoard 메모리 주변장치 연동
-8. `S04_ex_gpio_apb_zedboard` — ZedBoard GPIO 주변장치와 소프트웨어 테스트
+## 공통 프로젝트 구조
 
-일반 RTL 프로젝트는 `rtl/verilog`, 테스트벤치는 `bench/verilog`, 시뮬레이션 및 합성 스크립트는 각각 `sim`, `syn`에서 확인할 수 있습니다.
+- `rtl/verilog` — 합성 대상 RTL
+- `bench/verilog` — 테스트벤치와 버스 태스크
+- `sim`, `sim.gate` — RTL/게이트 시뮬레이션 스크립트
+- `syn` — Vivado 합성 스크립트
+- `api/c` — 주변장치 접근용 C API
 
-ZedBoard 프로젝트는 `hw/impl.zed/design_zed.tcl`로 하드웨어 구성을 재생성하고, `sw.arm/*/src`에서 ARM 테스트 코드를 확인할 수 있습니다.
+## 05. ZedBoard APB 시스템
 
+마지막 챕터는 BD가 실제로 참조하는 소스를 기준으로 다음처럼 구성했습니다.
+
+```text
+05-zedboard-apb-system/
+├── ip/
+│   ├── axi4-to-apb-and-memory/   # 브리지와 APB 메모리 RTL
+│   └── gpio-apb/                 # GPIO RTL, 테스트벤치, C API
+└── examples/
+    ├── 01-memory-only/           # 메모리 BD + hello_world SW
+    └── 02-memory-and-gpio/       # 메모리/GPIO BD + gpio_test SW
+```
+
+각 예제의 `hw/impl.zed/design_zed.tcl`은 같은 챕터의 `ip` 소스를 참조하도록 경로를 갱신했습니다. `RunVivado.bat` 또는 `make`로 BD 프로젝트를 재생성할 수 있으며 ARM 코드는 `sw.arm/<application>/src`에 있습니다.
