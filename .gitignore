@@ -1,0 +1,42 @@
+# C/C++ build outputs
+*.exe
+*.o
+*.obj
+*.elf
+
+# Simulation outputs
+*.vcd
+*.wdb
+*.vvp
+*.jou
+*.log
+*.pb
+*.sdb
+*.str
+xsim.dir/
+
+# Vivado generated files
+.Xil/
+*.cache/
+*.gen/
+*.runs/
+*.sim/
+*.ip_user_files/
+*.dcp
+*.rpx
+*.bit
+*.ltx
+*.xsa
+
+# Vitis / Eclipse generated workspaces
+workspace.zed/
+.metadata/
+.analytics
+Debug/
+obj/
+
+# Editor and local backup files
+.vscode/
+*.bak_codex_*
+*~
+

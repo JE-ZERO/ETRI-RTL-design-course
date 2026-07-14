@@ -1,0 +1,6 @@
+sv work \
+        -i ../../bench/verilog\
+           ../../bench/verilog/top.sv\
+           ../../bench/verilog/tester.sv\
+        -i ../../rtl/verilog\
+           ../../rtl/verilog/uart_axi_lite.v

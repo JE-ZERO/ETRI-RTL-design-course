@@ -1,0 +1,71 @@
+#-------------------------------------------------------------------------------
+# Copyright (c) 2024 by Ando Ki.
+# All rights are reserved by Ando Ki.
+#-------------------------------------------------------------------------------
+# Makefile
+#-------------------------------------------------------------------------------
+SHELL    = /bin/sh
+MAKEFILE = Makefile
+#-------------------------------------------------------------------------------
+ifeq ($(MAKECMDGOALS),$(findstring $(MAKECMDGOALS), "" "all"))
+    ifndef XILINX_VITIS
+       $(error XILINX_VITIS environment variable not defined)
+    else
+        export VITIS         = $(XILINX_VITIS)/bin/vitis
+        #export VITIS_VERSION = $(shell vitis -version | sed -n 1p | cut -d" " -f 2 | cut -c 2-7)
+        #export VITIS_VER     = vitis.$(VIVADO_VERSION)
+    endif
+endif
+#-------------------------------------------------------------------------------
+DIR_HW        ?= ../../hw/impl.zed
+DIR_WORKSPACE ?= ../workspace.zed
+#-------------------------------------------------------------------------------
+DESIGN        ?= zed
+DESIGN_NAME   ?= design_$(DESIGN)
+DIR_WRAP      ?= $(DIR_WORKSPACE)/$(DESIGN_NAME)_wrapper/export/$(DESIGN_NAME)_wrapper/sw/$(DESIGN_NAME)_wrapper/standalone_domain
+#-------------------------------------------------------------------------------
+TARGET   := hello_world.elf
+#-------------------------------------------------------------------------------
+DIR_OBJ  := obj
+DUMMY    := $(shell [ -d $(DIR_OBJ) ] || mkdir $(DIR_OBJ) )
+DIR_SRC  := src
+SRCS     := $(DIR_SRC)/helloworld.c $(DIR_SRC)/platform.c
+OBJS     := $(addprefix $(DIR_OBJ)/,$(patsubst %.c,%.o,$(notdir $(SRCS))))
+#-------------------------------------------------------------------------------
+GCC       := arm-none-eabi-gcc
+DEPFLAGS  := -MMD
+DEFINES   :=
+CFLAGS    := -Wall -O0 -g3 -c -fmessage-length=0\
+             -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard
+INCDIRS   := -I$(DIR_SRC)\
+             -I$(DIR_WRAP)/bspinclude/include\
+             -I$(DIR_WORKSPACE)/$(DESIGN_NAME)_wrapper/ps7_cortexa9_0/standalone_domain/bsp/ps7_cortexa9_0/include
+LDFLAGS   := -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none\
+             -specs=$(DIR_SRC)/Xilinx.spec -Wl,-T -Wl,$(DIR_SRC)/lscript.ld
+LIBS      := -L$(DIR_WRAP)/bsplib/lib\
+             -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+#-------------------------------------------------------------------------------
+vpath %.h    $(DIR_SRC)
+vpath %.c    $(DIR_SRC)
+$(DIR_OBJ)/%.o: %.c
+	$(GCC) $(DEFINES) $(DEPFLAGS) $(CFLAGS) $(INCDIRS) -o $@ $<
+#-------------------------------------------------------------------------------
+.PHONY: all
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(GCC) -o $(TARGET) $^ $(LDFLAGS) $(LIBS)
+
+size:
+	arm-none-eabi-size $(TARGET)  |tee $(TARGET).size
+
+#-------------------------------------------------------------------------------
+.PHONY: clean cleanup clobber cleanupall distclean
+clean:
+	/bin/rm -fr $(DIR_OBJ)
+
+cleanup clobber: clean
+	/bin/rm -f  $(TARGET)
+
+cleanupall distclean: cleanup
+#-------------------------------------------------------------------------------

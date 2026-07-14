@@ -1,0 +1,7 @@
+verilog work \
+        -d SIM -d VCD -d VIVADO\
+	-i ../../bench/verilog\
+           ../../bench/verilog/top.sv\
+           ../../bench/verilog/tester.sv\
+	-i ../../rtl/verilog\
+           ../../rtl/verilog/mem_axi_lite.v
