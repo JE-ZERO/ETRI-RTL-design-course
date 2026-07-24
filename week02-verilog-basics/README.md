@@ -2,6 +2,11 @@
 
 Vivado에서 조합논리, 순차논리, FSM과 간단한 주변장치를 구현한 실습입니다. 생성된 캐시와 합성 결과 대신 RTL 및 제약 파일만 보존했습니다.
 
+## 개발 환경
+
+- 개발 도구: Xilinx Vivado 2020.2, Xilinx Vitis 2020.2
+- FPGA 보드: Ultra96
+
 ## 프로젝트
 
 - `project_1` — adder, mux, multiplier, counter, flip-flop 등 기본 RTL

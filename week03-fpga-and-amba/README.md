@@ -2,6 +2,11 @@
 
 디렉터리 이름을 학습 순서대로 통일하고, 서로 참조하는 RTL IP·Block Design·ARM 소프트웨어는 하나의 시스템 챕터로 묶었습니다.
 
+## 개발 환경
+
+- 개발 도구: Xilinx Vivado 2020.2, Xilinx Vitis 2020.2
+- FPGA 보드: ZedBoard
+
 | 순서 | 디렉터리 | 내용 |
 | --- | --- | --- |
 | 01 | [`01-memory-basics`](01-memory-basics/) | 기본 메모리 RTL과 테스트벤치 |

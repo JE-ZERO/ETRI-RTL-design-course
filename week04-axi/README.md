@@ -2,6 +2,11 @@
 
 AXI4-Lite 메모리에서 UART 주변장치와 ZedBoard 통합 시스템으로 진행됩니다. 최종 BD가 참조하는 변환기·UART IP·ARM 소프트웨어를 하나의 챕터로 묶었습니다.
 
+## 개발 환경
+
+- 개발 도구: Xilinx Vivado 2020.2, Xilinx Vitis 2020.2
+- FPGA 보드: ZedBoard
+
 | 순서 | 디렉터리 | 내용 |
 | --- | --- | --- |
 | 01 | [`01-axi-lite-memory`](01-axi-lite-memory/) | AXI4-Lite 메모리 슬레이브 |

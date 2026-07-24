@@ -2,6 +2,12 @@
 
 SystemVerilog의 데이터 타입과 제한 조건 기반 난수 생성을 연습하고, 비밀번호 도어락을 단계적으로 확장한 실습입니다.
 
+## 개발 환경
+
+- 운영 환경: Linux
+- RTL 시뮬레이터: Cadence Xcelium
+- 파형 확인 및 디버깅: Cadence SimVision
+
 ## 구성
 
 | 구분 | 파일 | 내용 |
@@ -43,4 +49,4 @@ Step 2의 RTL에 명령형 테스트벤치를 추가했습니다.
 - `reset`: DUT 초기화
 - `quit`: 시뮬레이션 종료
 
-테스트벤치는 Cadence SHM 파형 기록을 위해 `$shm_open`과 `$shm_probe`를 사용합니다.
+테스트벤치는 Cadence SHM 파형 기록을 위해 `$shm_open`과 `$shm_probe`를 사용하며, 생성된 파형은 SimVision에서 확인할 수 있습니다.
