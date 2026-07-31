@@ -1,6 +1,6 @@
 # 1주차 — C 언어와 MobileNetV2
 
-파일 수정 날짜와 기능적 연관성을 기준으로 C 기초부터 MobileNetV2 Layer 8 구현까지 다섯 단계로 묶었습니다.
+파일 수정 날짜와 기능적 연관성을 기준으로 C 기초부터 MobileNetV2 전체 네트워크 구현까지 여섯 단계로 묶었습니다.
 
 | 순서 | 디렉터리 | 날짜 | 내용 |
 | --- | --- | --- | --- |
@@ -9,6 +9,7 @@
 | 03 | [`03-pointers-and-image-convolution`](03-pointers-and-image-convolution/) | 6월 24일 | 포인터/함수 기반 convolution과 RAW 영상 처리 |
 | 04 | [`04-bitmap-processing`](04-bitmap-processing/) | 6월 25일 | BMP 복사, RGB 채널, 상하/좌우 반전 |
 | 05 | [`05-mobilenetv2-layer08`](05-mobilenetv2-layer08/) | 6월 25~26일 | MobileNetV2 파라미터와 Layer 8 pointwise convolution |
+| 06 | [`06-mobilenetv2-complete`](06-mobilenetv2-complete/) | — | MobileNetV2 전체 네트워크 C 구현과 HDL/Verilog 설계 자료 |
 
 ## 01. C 기초
 
@@ -33,5 +34,9 @@
 ## 05. MobileNetV2 Layer 8
 
 `Layer08.c`와 계층 사양, 파라미터, 입력/기준 출력 바이너리를 함께 배치했습니다. `mobilenetv2_parameters.h`는 약 35.5 MiB이지만 실습 재현에 필요해 포함했습니다.
+
+## 06. MobileNetV2 완성본
+
+`C/`에는 전체 MobileNetV2 추론을 수행하는 소스와 계층별 기준 입출력 바이너리를 배치했습니다. `HDL/`에는 하드웨어 구현 프로젝트와 설계 고려사항을, `Verilog/`에는 Layer 8 확장 가중치 ROM 사양·초기화 데이터·생성 도구를 정리했습니다.
 
 컴파일된 `.exe` 파일은 제외했으므로 사용 환경의 C 컴파일러로 다시 빌드하세요.
