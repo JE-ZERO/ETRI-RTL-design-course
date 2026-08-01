@@ -1,0 +1,7 @@
+*.bin binary
+*.raw binary
+*.bmp binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.zip binary
