@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_uart_multiplier_core_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_uart_multiplier_core" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="1,787.323065 us"></ZoomStartTime>
+      <ZoomEndTime time="2,936.323066 us"></ZoomEndTime>
+      <Cursor1Time time="2,454.323065 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="304"></NameColumnWidth>
+      <ValueColumnWidth column_width="146"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="18" />
+   <wvobject fp_name="/tb_uart_multiplier_core/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_uart_multiplier_core/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_uart_multiplier_core/rxd" type="logic">
+      <obj_property name="ElementShortName">rxd</obj_property>
+      <obj_property name="ObjectShortName">rxd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_uart_multiplier_core/txd" type="logic">
+      <obj_property name="ElementShortName">txd</obj_property>
+      <obj_property name="ObjectShortName">txd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_uart_multiplier_core/dut/rx_dout" type="array">
+      <obj_property name="ElementShortName">rx_dout[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_dout[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_uart_multiplier_core/dut/rx_en" type="logic">
+      <obj_property name="ElementShortName">rx_en</obj_property>
+      <obj_property name="ObjectShortName">rx_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_uart_multiplier_core/dut/operand_a" type="array">
+      <obj_property name="ElementShortName">operand_a[7:0]</obj_property>
+      <obj_property name="ObjectShortName">operand_a[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_uart_multiplier_core/dut/operand_b" type="array">
+      <obj_property name="ElementShortName">operand_b[7:0]</obj_property>
+      <obj_property name="ObjectShortName">operand_b[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_uart_multiplier_core/dut/digit_count" type="array">
+      <obj_property name="ElementShortName">digit_count[1:0]</obj_property>
+      <obj_property name="ObjectShortName">digit_count[1:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_uart_multiplier_core/dut/state" type="array">
+      <obj_property name="ElementShortName">state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state[2:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_uart_multiplier_core/dut/mult_start" type="logic">
+      <obj_property name="ElementShortName">mult_start</obj_property>
+      <obj_property name="ObjectShortName">mult_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_uart_multiplier_core/dut/mult_result" type="array">
+      <obj_property name="ElementShortName">mult_result[15:0]</obj_property>
+      <obj_property name="ObjectShortName">mult_result[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_uart_multiplier_core/dut/mult_en" type="logic">
+      <obj_property name="ElementShortName">mult_en</obj_property>
+      <obj_property name="ObjectShortName">mult_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_uart_multiplier_core/dut/result_latched" type="array">
+      <obj_property name="ElementShortName">result_latched[15:0]</obj_property>
+      <obj_property name="ObjectShortName">result_latched[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_uart_multiplier_core/dut/tx_din" type="array">
+      <obj_property name="ElementShortName">tx_din[7:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_din[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_uart_multiplier_core/dut/tx_start" type="logic">
+      <obj_property name="ElementShortName">tx_start</obj_property>
+      <obj_property name="ObjectShortName">tx_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_uart_multiplier_core/dut/tx_en" type="logic">
+      <obj_property name="ElementShortName">tx_en</obj_property>
+      <obj_property name="ObjectShortName">tx_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_uart_multiplier_core/dut/send_index" type="array">
+      <obj_property name="ElementShortName">send_index[2:0]</obj_property>
+      <obj_property name="ObjectShortName">send_index[2:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>
