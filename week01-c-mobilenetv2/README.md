@@ -9,7 +9,7 @@
 | 03 | [`03-pointers-and-image-convolution`](03-pointers-and-image-convolution/) | 6월 24일 | 포인터/함수 기반 convolution과 RAW 영상 처리 |
 | 04 | [`04-bitmap-processing`](04-bitmap-processing/) | 6월 25일 | BMP 복사, RGB 채널, 상하/좌우 반전 |
 | 05 | [`05-mobilenetv2-layer08`](05-mobilenetv2-layer08/) | 6월 25~26일 | MobileNetV2 파라미터와 Layer 8 pointwise convolution |
-| 06 | [`06-mobilenetv2-complete`](06-mobilenetv2-complete/) | — | MobileNetV2 전체 네트워크 C 구현과 HDL/Verilog 설계 자료 |
+| 06 | [`06-mobilenetv2-complete`](06-mobilenetv2-complete/) | — | MobileNetV2 전체 네트워크 C 구현 |
 
 ## 01. C 기초
 
@@ -37,6 +37,8 @@
 
 ## 06. MobileNetV2 완성본
 
-`C/`에는 전체 MobileNetV2 추론을 수행하는 소스와 계층별 기준 입출력 바이너리를 배치했습니다. `C/tools/make_input_bin.py`로 일반 이미지를 224×224 CHW float32 입력 BIN으로 변환할 수 있고, 직접 변환·추론한 기타 및 고양이 자료는 `C/samples/`에 종류별로 정리했습니다. `HDL/`에는 하드웨어 구현 프로젝트와 설계 고려사항을, `Verilog/`에는 Layer 8 확장 가중치 ROM 사양·초기화 데이터·생성 도구를 정리했습니다.
+`C/`에는 전체 MobileNetV2 추론을 수행하는 소스와 계층별 기준 입출력 바이너리를 배치했습니다. `C/tools/make_input_bin.py`로 일반 이미지를 224×224 CHW float32 입력 BIN으로 변환할 수 있고, 직접 변환·추론한 기타 및 고양이 자료는 `C/samples/`에 종류별로 정리했습니다.
+
+Layer 8 고정소수점 Golden 모델과 Verilog 구현은 6주차의 [`03-mobilenetv2-pointwise`](../week06-memory-and-dsp/03-mobilenetv2-pointwise/)로 분리했습니다. 이 디렉터리는 전체 네트워크 C 구현만 보관합니다.
 
 컴파일된 `.exe` 파일은 제외했으므로 사용 환경의 C 컴파일러로 다시 빌드하세요.

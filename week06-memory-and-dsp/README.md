@@ -6,6 +6,7 @@ Vivado에서 여러 형태의 메모리를 RTL과 Block Memory Generator IP로 �
 | --- | --- |
 | [`block_mem`](block_mem/) | Single-port RAM/ROM, simple·true dual-port RAM, BRAM 초기화와 메모리 간 데이터 복사 |
 | [`DSP`](DSP/) | Multiplier Generator와 Block Memory Generator를 연결한 9×9 곱셈 결과 저장 |
+| [`03-mobilenetv2-pointwise`](03-mobilenetv2-pointwise/) | MobileNetV2 Layer 8의 1-DSP baseline과 32-DSP output-stationary pointwise convolution |
 
 ## Block Memory 실습
 
@@ -23,9 +24,16 @@ Vivado 프로젝트는 [`block_mem/block_mem.xpr`](block_mem/block_mem.xpr)에�
 
 Vivado 프로젝트는 [`DSP/DSP.xpr`](DSP/DSP.xpr)에서 열 수 있습니다.
 
+## MobileNetV2 Layer 8 Pointwise Convolution
+
+16비트 고정소수점 입력과 가중치를 사용해 Layer 8의 64→384 pointwise convolution을 구현했습니다. `pointwise_baseline.v`는 DSP Macro 한 개를 순차 재사용하고, `pointwise_os32.v`는 같은 입력값을 32개 DSP Macro에 전달해 출력 채널 32개를 병렬로 계산합니다. 두 구조 모두 C Golden 모델의 48비트 누산값과 전체 75,264개 출력을 비교하도록 구성했습니다.
+
+Vivado 2023.2 프로젝트와 자세한 사양은 [`03-mobilenetv2-pointwise/README.md`](03-mobilenetv2-pointwise/README.md)를 참고하세요.
+
 ## 개발 환경
 
-- Xilinx Vivado 2020.2
+- Xilinx Vivado 2020.2 (기초 메모리/DSP 실습)
+- Xilinx Vivado 2023.2 (MobileNetV2 Layer 8)
 - Ultra96-V2 (`xczu3eg-sbva484-1-e`)
 
 Vivado 캐시, 합성 결과, 시뮬레이션 출력과 비트스트림은 저장소의 `.gitignore` 정책에 따라 제외했습니다.
