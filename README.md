@@ -12,6 +12,7 @@ ETRI RTL 설계 교육에서 진행한 실습을 주차별로 정리한 저장�
 | [4주차](week04-axi/) | AXI4-Lite와 UART | AXI4-Lite 메모리와 변환기-UART-BD-SW 통합 시스템 |
 | [5주차](week05-systemverilog/) | SystemVerilog과 FSM | 데이터 타입·제한 조건 난수 실습과 가변 비밀번호 도어락 FSM |
 | [6주차](week06-memory-and-dsp/) | 메모리와 DSP IP | RAM/ROM 실습, DSP IP 연동, MobileNetV2 Layer 8 pointwise baseline·OS32 구현 |
+| [7주차](week07-depthwise-convolution/) | MobileNetV2 Depthwise Convolution | Layer 8의 주소 처리·zero padding·line buffer·9-DSP cascade 구현 |
 
 ## 저장소 관리 기준
 
@@ -32,6 +33,7 @@ ETRI RTL 설계 교육에서 진행한 실습을 주차별로 정리한 저장�
 | 4주차 | Xilinx Vivado/Vitis 2020.2 | ZedBoard |
 | 5주차 | Linux, Cadence Xcelium, SimVision | — |
 | 6주차 | Xilinx Vivado 2020.2/2023.2 | Ultra96-V2 |
+| 7주차 | Xilinx Vivado 2020.2 | Ultra96-V2 |
 
 일부 FPGA 프로젝트는 Windows 배치 파일과 Unix 셸 스크립트를 함께 제공합니다.
 
