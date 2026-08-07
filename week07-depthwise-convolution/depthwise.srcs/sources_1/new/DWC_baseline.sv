@@ -9,39 +9,36 @@ module DWC_baseline (
 
     // 최소 debug probe: behavioral에서 파이프 정렬을 확인하고,
     // post-synthesis에서도 핵심 제어/좌표 이름이 유지되도록 한다.
-    (* mark_debug = "true", keep = "true" *) logic active, data_valid_d1, data_valid;
+    (* keep = "true" *) logic active, data_valid_d1, data_valid;
 
-    logic [8:0] channel, channel_d1;
-    (* mark_debug = "true", keep = "true" *) logic [8:0] channel_d;
+    (* keep = "true" *) logic [8:0] channel, channel_d1, channel_d;
 
-    logic [3:0] row, col, row_d1, col_d1;
-    (* mark_debug = "true", keep = "true" *) logic [3:0] row_d, col_d;
-    logic [3:0] weight_index, weight_index_d1, weight_index_d;
-    logic weight_valid_d1, weight_valid_d;
+    (* keep = "true" *) logic [3:0] row, col, row_d1, col_d1, row_d, col_d;
+    (* keep = "true" *) logic [3:0] weight_index, weight_index_d1, weight_index_d;
+    (* keep = "true" *) logic weight_valid_d1, weight_valid_d;
 
-    logic [16:0] input_addr;
-    logic [11:0] weight_addr;
-    logic signed [15:0] input_bram_data, weight_bram_data;
+    (* keep = "true" *) logic [16:0] input_addr;
+    (* keep = "true" *) logic [11:0] weight_addr;
+    (* keep = "true" *) logic signed [15:0] input_bram_data, weight_bram_data;
 
     // line[1], line[0], 현재 입력을 합치면 세로로 3개 행이 만들어짐
-    logic signed [15:0] line [0:1][0:13];
+    (* keep = "true" *) logic signed [15:0] line [0:1][0:13];
 
     // shift에는 왼쪽 두 열을 저장하고, current에는 현재 열이 들어감
-    logic signed [15:0] shift       [0:2][0:1];
-    logic signed [15:0] current     [0:2];
-    logic signed [15:0] window_data [0:8];
-    logic signed [15:0] weight_data [0:8];
+    (* keep = "true" *) logic signed [15:0] shift       [0:2][0:1];
+    (* keep = "true" *) logic signed [15:0] current     [0:2];
+    (* keep = "true" *) logic signed [15:0] window_data [0:8];
+    (* keep = "true" *) logic signed [15:0] weight_data [0:8];
 
     // DSP의 PCOUT을 다음 DSP의 PCIN으로 넘기기 위한 선
-    logic signed [47:0] cascade [0:7];
-    (* mark_debug = "true", keep = "true" *) logic signed [47:0] dsp_sum_comb, dsp_sum;
+    (* keep = "true" *) logic signed [47:0] cascade [0:7];
+    (* keep = "true" *) logic signed [47:0] dsp_sum_comb, dsp_sum;
 
     // DSP AREG 2단 + MREG 1단 + cascade 출력 레지스터 1단
     localparam int RESULT_LATENCY = 4;
 
-    (* mark_debug = "true", keep = "true" *) logic window_valid;
-    logic window_last;
-    logic [RESULT_LATENCY-1:0] result_valid_pipe, done_pipe;
+    (* keep = "true" *) logic window_valid, window_last;
+    (* keep = "true" *) logic [RESULT_LATENCY-1:0] result_valid_pipe, done_pipe;
 
 
 
